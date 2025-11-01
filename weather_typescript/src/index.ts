@@ -1,9 +1,12 @@
+import 'dotenv/config';
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
 import { z } from "zod";
 
-const NWS_API_BASE = "https://api.weather.gov";
-const USER_AGENT = "weather-app/1.0";
+// Allow overriding via environment variables. See .env.example for names.
+const NWS_API_BASE = process.env.NWS_API_BASE ?? "https://api.weather.gov";
+const USER_AGENT =
+  process.env.USER_AGENT ?? `weather-app/${process.env.npm_package_version ?? "1.0.0"}`;
 
 // Helper function for making NWS API requests
 async function makeNWSRequest<T>(url: string): Promise<T | null> {
