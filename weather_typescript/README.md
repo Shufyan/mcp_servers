@@ -64,5 +64,3 @@ Or run the built file directly: `./build/index.js`.
 
 - `npm run start` will run the build step before starting the binary (so you don't need to run `build` separately).
 - `dotenv` is used for local `.env` loading and is included in devDependencies; run `npm install` to get it for development.
-
-If you want, I can add a `start` script that builds before running, or add a lightweight test harness to exercise the CLI.
